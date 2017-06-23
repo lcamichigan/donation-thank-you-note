@@ -7,34 +7,6 @@
 \input support/note-info
 \input support/donor-info
 
-% Set up margins.
-\usepackage[
-  left   = 1.25in,
-  right  = 2.375in,
-  top    = 0.75in,
-  bottom = 1.25in,
-  noheadfoot,
-  nomarginpar
-]{geometry}
-
-% Use Linux Libertine <http://www.linuxlibertine.org> as the main font.
-\setmainfont{Linux Libertine O}[Numbers=Proportional]
-
-% Use Gillius <http://arkandis.tuxfamily.org/adffonts.html> as the sans serif
-% font.
-\setsansfont{Gillius ADF No2}
-
-% Don’t indent paragraphs.
-\parindent0sp
-
-% Separate paragraphs by 6 pt (“bp” means “big point”, and 1bp is 1/72 inch).
-\parskip6bp
-
-\begin{document}
-\frenchspacing    % Don’t put extra space after a full stop.
-\pagestyle{empty} % Don’t put a page number in the footer.
-\urlstyle{same}   % Don’t typeset URLs in a fixed-width font.
-
 % This note is going in a double-windowed No. 9 envelope:
 % https://www.uline.com/Product/Detail/S-17269/Paper-Office-Envelopes/9-Self-Seal-White-Business-Envelopes-with-Double-Window-3-7-8-x-8-7-8
 % The envelope is 3.875 inches high and 8.875 inches wide. The top window is
@@ -59,6 +31,34 @@
 \bottomWindowWidth4in
 \newlength\bottomWindowHeight
 \bottomWindowHeight1in
+
+% Set up margins.
+\usepackage[
+  left   = 1.25in,
+  right  = 2.375in,
+  top    = \topWindowMinY,
+  bottom = 1.25in,
+  noheadfoot,
+  nomarginpar
+]{geometry}
+
+% Use Linux Libertine <http://www.linuxlibertine.org> as the main font.
+\setmainfont{Linux Libertine O}[Numbers=Proportional]
+
+% Use Gillius <http://arkandis.tuxfamily.org/adffonts.html> as the sans serif
+% font.
+\setsansfont{Gillius ADF No2}
+
+% Don’t indent paragraphs.
+\parindent0sp
+
+% Separate paragraphs by 6 pt (“bp” means “big point”, and 1bp is 1/72 inch).
+\parskip6bp
+
+\begin{document}
+\frenchspacing    % Don’t put extra space after a full stop.
+\pagestyle{empty} % Don’t put a page number in the footer.
+\urlstyle{same}   % Don’t typeset URLs in a fixed-width font.
 
 % Add negative horizontal space so that a cross and crescent can be placed about
 % a half inch into the left margin.

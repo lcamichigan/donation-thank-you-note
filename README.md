@@ -134,13 +134,13 @@ You should edit only the values, not the keys. For example, if the next alumni
 event is Homecoming, change
 
 ```json
-"Event name": "Founders Day Brunch",
+"Event name": "Founders Day Brunch"
 ```
 
 to
 
 ```json
-"Event name": "Homecoming Brunch",
+"Event name": "Homecoming Brunch"
 ```
 
 The event date is formatted as YYYY-MM-DD hh:mm.

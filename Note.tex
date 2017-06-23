@@ -11,9 +11,10 @@
 \usepackage[
   left   = 1.25in,
   right  = 2.375in,
-  top    = 0.25in,
+  top    = 0.75in,
   bottom = 1.25in,
-  noheadfoot
+  noheadfoot,
+  nomarginpar
 ]{geometry}
 
 % Use Linux Libertine <http://www.linuxlibertine.org> as the main font.
@@ -69,14 +70,8 @@
 % Put a cross and crescent and the return address in a box.
 \raisebox{0sp}[%
     % Set the height of the box so that its contents are centered in the top
-    % window. Compensate for the top margin
-    % <https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_dimensions>.
-    \dimexpr-1in-\voffset-\topmargin-\headheight-\headsep%
-    % Move the bottom of the box to the top of the window.
-    + \topWindowMinY%
-    % Center the contents of the box in the window; \height is the height of the
-    % contents of the box.
-    + (\topWindowHeight + \height) / 2\relax%
+    % window.
+    \dimexpr(\topWindowHeight + \height) / 2\relax%
   ][%
     % Set the depth of the box so that the bottom of the box is the bottom of
     % the window.
@@ -111,7 +106,7 @@
   \MakeUppercase{\donorCity\ \donorState\ \ \donorZIP}%
 }%
 
-\vspace{1in}
+\vfill
 
 Dear Brother \donorLastName,
 

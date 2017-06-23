@@ -1,0 +1,7 @@
+notes/
+support/
+Note.*
+!Note.tex
+Notes.pdf
+info.json
+donations.csv

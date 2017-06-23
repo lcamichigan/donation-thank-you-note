@@ -1,0 +1,58 @@
+# https://www.appveyor.com/docs/appveyor-yml
+
+environment:
+  matrix:
+    # https://www.appveyor.com/docs/build-environment/#python
+    - PYTHON: C:\Python27
+    - PYTHON: C:\Python27-x64
+    - PYTHON: C:\Python36
+    - PYTHON: C:\Python36-x64
+
+install:
+  # Download and install a minimal TeX Live, based on
+  # https://github.com/latex3/latex3/blob/master/support/texlive.sh.
+  - ps: Start-FileDownload 'http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip'
+  - 7z x install-tl.zip
+  - cd install-tl-20*
+  # The install-tl-windows.bat script contains pause commands that stop
+  # execution until a key is pressed. Remove these.
+  - ps: Set-Content install-tl-windows.bat (Get-Content install-tl-windows.bat | Select-String -Pattern '^pause$' -NotMatch)
+  - ps: Set-Content texlive.profile "selected_scheme scheme-minimal`nTEXDIR C:\texlive`noption_doc 0`noption_src 0`n"
+  - install-tl-windows -gui=text -profile=texlive.profile
+  - cd ..
+  - set PATH=%PATH%;C:\texlive\bin\win32
+  - tlmgr install
+    fontspec
+    geometry
+    gillius
+    graphics
+    libertine
+    oberdiek
+    pgf
+    url
+    xcolor
+    xetex
+
+  # Get the cross-and-crescent LaTeX package.
+  - ps: Start-FileDownload 'https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.2/cross-and-crescent.sty'
+
+  # Install Ghostscript using Chocolatey <https://chocolatey.org>.
+  - choco install ghostscript
+  # Add Ghostscript to the Windows PATH.
+  - cd %ProgramFiles%\gs\gs*\bin
+  - set PATH=%PATH%;%CD%
+  - cd %APPVEYOR_BUILD_FOLDER%
+
+  # Switch to the environment’s version of Python.
+  - set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+
+build_script:
+  - python --version
+  - python init.py
+  - python make_notes.py
+  - for %%G in (notes\*.pdf) do @echo %%G >> filenames.txt
+  - gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.txt
+
+test: off
+
+skip_tags: true

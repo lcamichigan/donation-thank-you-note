@@ -1,0 +1,172 @@
+\documentclass{article}
+
+\usepackage{cross-and-crescent}
+\usepackage[no-config]{fontspec}
+\usepackage{url}
+
+\input support/note-info
+\input support/donor-info
+
+% Set up margins
+\newlength\leftMargin
+\leftMargin1.25in
+\newlength\topMargin
+\topMargin0.25in
+\usepackage[
+  lmargin = \leftMargin,
+  rmargin = 2.375in,
+  tmargin = \topMargin,
+  bmargin = \leftMargin,
+  noheadfoot
+]{geometry}
+
+% Use Linux Libertine <http://www.linuxlibertine.org> as the main font.
+\setmainfont{Linux Libertine O}[Numbers=Proportional]
+
+% Use Gillius <http://arkandis.tuxfamily.org/adffonts.html> as the sans serif
+% font.
+\setsansfont{Gillius ADF No2}
+
+% Don’t indent paragraphs.
+\parindent0sp
+
+% Separate paragraphs by 6 pt (“bp” means “big point”, and 1bp is 1/72 inch).
+\parskip6bp
+
+\begin{document}
+\frenchspacing    % Don’t put extra space after a full stop.
+\pagestyle{empty} % Don’t put a page number in the footer.
+\urlstyle{same}   % Don’t typeset URLs in a fixed-width font.
+
+% This note is going in a double-windowed No. 9 envelope:
+% https://www.uline.com/Product/Detail/S-17269/Paper-Office-Envelopes/9-Self-Seal-White-Business-Envelopes-with-Double-Window-3-7-8-x-8-7-8
+% This envelope is 3.875 inches high and 8.875 inches wide. The top window is
+%   - 0.75  inches from the top of the envelope (2 inches from the bottom)
+%   - 3.5   inches wide
+%   - 1.125 inches high
+% The bottom window is
+%   - 2.375 inches from the top of the envelope (0.5 inches from the bottom)
+%   - 4     inches wide
+%   - 1     inch   high
+% Both windows are 0.375 inches from the left of the envelope.
+\newlength\topWindowMinY
+\topWindowMinY0.75in
+\newlength\topWindowWidth
+\topWindowWidth3.5in
+\newlength\topWindowHeight
+\topWindowHeight1.125in
+
+\newlength\bottomWindowMinY
+\bottomWindowMinY2.375in
+\newlength\bottomWindowWidth
+\bottomWindowWidth4in
+\newlength\bottomWindowHeight
+\bottomWindowHeight1in
+
+% Add negative horizontal space so that a cross and crescent can be placed about
+% a half inch into the left margin
+% <https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_dimensions>.
+\newlength\crossAndCrescentSize
+\crossAndCrescentSize0.5in
+\newlength\crossAndCrescentSeparation
+\crossAndCrescentSeparation1ex
+\hspace*{\dimexpr\leftMargin-\crossAndCrescentSize-\crossAndCrescentSeparation-\oddsidemargin-1in-\hoffset\relax}%
+% Put a cross and crescent and the return address in a box.
+\raisebox{0sp}[%
+    % Set the height of the box so that its contents are centered in the top
+    % window. Compensate for the top margin.
+    \dimexpr-\topMargin%
+    % Move the bottom of the box to the top of the window.
+    + \topWindowMinY%
+    % Center the contents of the box in the window; \height is the height of the
+    % contents of the box.
+    + (\topWindowHeight + \height) / 2\relax%
+  ][%
+    % Set the depth of the box so that the bottom of the box is the bottom of
+    % the window.
+    \dimexpr(\topWindowHeight - \height) / 2\relax%
+  ]{%
+  % Draw a cross and crescent in the left margin. To draw the cross and crescent
+  % at the desired size, it must be scaled. The path of the cross and crescent
+  % is 8 by 8 units in TikZ’s coordinate system. By default, a unit in TikZ is
+  % 1 centimeter (see Section 11.1 of the TikZ & PGF manual for v3.0.1a at
+  % https://www.ctan.org/pkg/pgf).
+  \begin{tikzpicture}[scale=\crossAndCrescentSize / 8cm]%
+    \crossAndCrescentSetMacros
+    \draw\crossAndCrescentPath
+  \end{tikzpicture}%
+  \hspace{\crossAndCrescentSeparation}%
+  % Add the return address.
+  \parbox[b][\crossAndCrescentSize][c]{\topWindowWidth}{%
+    Sigma Alumni Association\\
+    \SigmaStreet\\
+    \SigmaCityStateAndZIP%
+  }%
+}%
+% Add space to put the mailing address in the bottom window.
+\\[\dimexpr\bottomWindowMinY-\topWindowHeight-\topWindowMinY\relax]%
+% Add a box for the mailing address.
+\parbox[t][\bottomWindowHeight][c]{\bottomWindowWidth}{%
+  \sffamily\fontsize{12}{15}\selectfont%
+  \MakeUppercase{\donorDisplayName}\\%
+  \MakeUppercase{\donorStreet} \\%
+  % From https://pe.usps.com/text/pub28/28c2_009.htm, put two spaces between the
+  % state and ZIP.
+  \MakeUppercase{\donorCity\ \donorState\ \ \donorZIP}%
+}%
+
+\vspace{1in}
+
+Dear Brother \donorLastName,
+
+Thank you for your non–tax-deductible gift of \donationAmount\ to Sigma Alumni
+Association. We will use your gift to provide the best possible Fraternal
+experience to undergraduate brothers of Sigma Zeta, the University of Michigan
+chapter of ΛΧΑ. Your gift \emph{will} make a difference. Please write to
+info@lcamichigan.com if you have any questions about your gift. Again, thank
+you!
+
+\vfill
+
+{\fontsize{14}{22}\selectfont\addfontfeature{Numbers=OldStyle}
+  We hope to see you at\\[8bp]
+  {\sffamily\fontsize{24}{24}\selectfont\addfontfeature{LetterSpace=5}
+    \MakeUppercase{\eventName}%
+  }\\
+  on \eventDate\ at 1601 Washtenaw.\\
+  RSVP to info@lcamichigan.com.\par
+}
+
+\vspace{0.25in}
+
+\emph{Send alumni news and contributions to\\}
+\SigmaStreet, \SigmaCityStateAndZIP
+
+\emph{Subscribe to the email list at} \url{lcamichigan.com/alumni-news}
+
+\emph{Write an update to include in a future newsletter at\\}
+\url{lcamichigan.com/alumni-news#sigman}
+
+\emph{Like Sigma at} \url{facebook.com/lcasigmazeta}
+
+\emph{Join the LinkedIn group at} \url{linkedin.com/groups?gid=5072620}
+
+% Change \iffalse to \iftrue, and then run
+%   xetex -fmt=xelatex Note.tex
+% *twice* to show the top and bottom envelope windows as gray rectangles.
+\iffalse
+\newlength\windowMinX
+\windowMinX0.375in
+\begin{tikzpicture}[remember picture,overlay]
+  \begin{scope}[lightgray]
+    \draw
+      ([shift={(\windowMinX, -\topWindowMinY)}]current page.north west) rectangle
+      ([shift={(\windowMinX + \topWindowWidth, -(\topWindowMinY + \topWindowHeight))}]current page.north west);
+    \draw
+      ([shift={(\windowMinX, -\bottomWindowMinY)}]current page.north west) rectangle
+      ([shift={(\windowMinX + \bottomWindowWidth, -(\bottomWindowMinY + \bottomWindowHeight))}]current page.north west);
+  \end{scope}
+\end{tikzpicture}
+\fi
+
+\end{document}

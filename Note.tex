@@ -64,13 +64,12 @@
 \bottomWindowHeight1in
 
 % Add negative horizontal space so that a cross and crescent can be placed about
-% a half inch into the left margin
-% <https://en.wikibooks.org/wiki/LaTeX/Page_Layout#Page_dimensions>.
+% a half inch into the left margin.
 \newlength\crossAndCrescentSize
 \crossAndCrescentSize0.5in
 \newlength\crossAndCrescentSeparation
 \crossAndCrescentSeparation1ex
-\hspace*{\dimexpr\leftMargin-\crossAndCrescentSize-\crossAndCrescentSeparation-\oddsidemargin-1in-\hoffset\relax}%
+\hspace*{\dimexpr-\crossAndCrescentSize-\crossAndCrescentSeparation\relax}%
 % Put a cross and crescent and the return address in a box.
 \raisebox{0sp}[%
     % Set the height of the box so that its contents are centered in the top

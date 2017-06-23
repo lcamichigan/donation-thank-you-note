@@ -22,10 +22,10 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
     file.write('\\newcommand\SigmaCityStateAndZIP{{{}}}\n'.format(info['Sigma address'][1]))
     file.write('\\newcommand\eventName{{{}}}\n'.format(info['Event name']))
     event_date = datetime.strptime(info['Event date and time'], '%Y-%m-%d %H:%M')
-    date_format = '{date:%A}, {date:%B} {date.day}, '
+    date_format = '{date:%A}, {date:%B} {date.day}'
     if event_date.year != datetime.today().year:
-        date_format += '{date.year} '
-    date_format += 'at {date.hour}'
+        date_format += ', {date.year}'
+    date_format += ' at {date.hour}'
     if event_date.minute > 0:
         date_format += ':{date:%M}'
     else:

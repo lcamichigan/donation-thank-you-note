@@ -64,9 +64,11 @@
 % a half inch into the left margin.
 \newlength\crossAndCrescentSize
 \crossAndCrescentSize0.5in
+\newlength\crossAndCrescentThickness
+\crossAndCrescentThickness\pgflinewidth
 \newlength\crossAndCrescentSeparation
 \crossAndCrescentSeparation1ex
-\hspace*{\dimexpr-\crossAndCrescentSize-\crossAndCrescentSeparation\relax}%
+\hspace*{\dimexpr-\crossAndCrescentSize-\crossAndCrescentThickness-\crossAndCrescentSeparation\relax}%
 % Put a cross and crescent and the return address in a box.
 \raisebox{0sp}[%
     % Set the height of the box so that its contents are centered in the top
@@ -84,7 +86,7 @@
   % https://www.ctan.org/pkg/pgf).
   \begin{tikzpicture}[scale=\crossAndCrescentSize / 8cm]%
     \crossAndCrescentSetMacros
-    \draw\crossAndCrescentPath
+    \draw[line width=\crossAndCrescentThickness] \crossAndCrescentPath
   \end{tikzpicture}%
   \hspace{\crossAndCrescentSeparation}%
   % Add the return address.

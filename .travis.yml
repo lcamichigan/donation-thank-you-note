@@ -25,7 +25,7 @@ before_install:
   - ln -s /usr/local/texlive/texmf-dist/fonts/opentype/arkandis/gillius ~/Library/Fonts/gillius
 
   # Get the cross-and-crescent LaTeX package.
-  - wget https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.2/cross-and-crescent.sty
+  - wget https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.3/cross-and-crescent.sty
 
   # Install Ghostscript using Homebrew <https://brew.sh>.
   - brew install ghostscript

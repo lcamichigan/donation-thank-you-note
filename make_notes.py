@@ -36,13 +36,13 @@ with open('donations.csv') as file:
     note_number = 0
     for row in csv.DictReader(file):
         with open(os.path.join('support', 'donor-info.tex'), 'w') as file:
-            file.write('\\newcommand\\donorDisplayName{{{}}}\n'.format(row['Display name'].strip()))
-            file.write('\\newcommand\\donorLastName{{{}}}\n'.format(row['Last name'].strip()))
-            file.write('\\newcommand\\donorStreet{{{}}}\n'.format(row['Street'].strip()))
-            file.write('\\newcommand\\donorCity{{{}}}\n'.format(row['City'].strip()))
-            file.write('\\newcommand\\donorState{{{}}}\n'.format(row['State'].strip()))
-            file.write('\\newcommand\\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))
-            file.write('\\newcommand\\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
+            file.write('\\newcommand\donorDisplayName{{{}}}\n'.format(row['Display name'].strip()))
+            file.write('\\newcommand\donorLastName{{{}}}\n'.format(row['Last name'].strip()))
+            file.write('\\newcommand\donorStreet{{{}}}\n'.format(row['Street'].strip()))
+            file.write('\\newcommand\donorCity{{{}}}\n'.format(row['City'].strip()))
+            file.write('\\newcommand\donorState{{{}}}\n'.format(row['State'].strip()))
+            file.write('\\newcommand\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))
+            file.write('\\newcommand\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
 
         note_number += 1
         subprocess.check_output([

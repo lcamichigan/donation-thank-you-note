@@ -95,7 +95,7 @@ python init.py
 ```
 
 This runs the Python script [init.py](init.py). This script creates an info.json
-file and a donations.csv file
+file and a donations.csv file.
 
 Now, enter
 

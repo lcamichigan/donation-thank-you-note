@@ -29,6 +29,9 @@ The most reliable way to install XeTeX is probably to install
 https://www.tug.org/texlive/acquire-netinstall.html, and then download and run
 install-tl-windows.exe. Note that installing TeX Live can take a few hours.
 
+To install the cross-and-crescent package, follow the instructions at
+https://github.com/lcamichigan/cross-and-crescent#installing.
+
 To install Python, visit https://www.python.org/downloads/windows/, and then
 download and run an installer for the latest release of Python 2 or 3 (you can
 use either version). Make sure you add python.exe to your Windows PATH when you
@@ -36,9 +39,6 @@ install Python.
 
 To install Ghostscript, visit https://www.ghostscript.com/download/gsdnld.html,
 and then download and run an installer for the latest release of Ghostscript.
-
-To install the cross-and-crescent package, follow the instructions at
-https://github.com/lcamichigan/cross-and-crescent#installing.
 
 To view thank you notes, you need a PDF viewer. On Windows 10, you can view PDF
 files in the built-in
@@ -66,13 +66,13 @@ ln -s /usr/local/texlive/2017/texmf-dist/fonts/opentype/arkandis/gillius ~/Libra
 (If you’re using an older version of MacTeX, you’ll need to replace texlive/2017
 with, for example, texlive/2016.)
 
+To install the cross-and-crescent package, follow the instructions at
+https://github.com/lcamichigan/cross-and-crescent#installing.
+
 The easiest way to install Ghostscript is probably through
 [Homebrew](https://brew.sh). To install Homebrew, follow the instructions at
 https://brew.sh. After you install Homebrew, enter `brew install ghostscript` in
 Terminal.
-
-To install the cross-and-crescent package, follow the instructions at
-https://github.com/lcamichigan/cross-and-crescent#installing.
 
 Python is included with macOS.
 

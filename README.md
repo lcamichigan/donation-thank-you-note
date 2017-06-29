@@ -179,6 +179,7 @@ On Windows, enter in Command Prompt
 ```batch
 for %G in (notes\*.pdf) do @echo %G >> filenames.txt
 gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.txt
+del filenames.txt
 ```
 
 to combine thank you notes into a PDF file named Notes.pdf. (If you see an error

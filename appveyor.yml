@@ -50,9 +50,9 @@ build_script:
   - python --version
   - python init.py
   - python make_notes.py
+  - if exist filenames.txt del filenames.txt
   - for %%G in (notes\*.pdf) do @echo %%G >> filenames.txt
   - gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.txt
-  - del filenames.txt
 
 test: off
 

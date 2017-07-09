@@ -36,7 +36,7 @@ before_install:
   - wget https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.3/cross-and-crescent.sty
 
   # Install Ghostscript using Homebrew <https://brew.sh>.
-  - brew install ghostscript
+  - HOMEBREW_NO_AUTO_UPDATE=1 brew install ghostscript
 
 script:
   - python --version

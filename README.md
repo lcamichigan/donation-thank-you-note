@@ -18,9 +18,10 @@ cross-platform. You also need the OpenType versions of the fonts
 you’ll get them automatically when you install XeTeX.
 
 You don’t need to do any TeX or Python programming to make thank you notes.
-However, you should be familiar with entering commands in Command Prompt on
-Windows or Terminal on macOS. It’ll also be helpful to have some exposure to
-[JSON](https://en.wikipedia.org/wiki/JSON), but this isn’t essential.
+However, you should be familiar with entering commands in PowerShell or Command
+Prompt on Windows, or in Terminal on macOS. It’ll also be helpful to have some
+exposure to [JSON](https://en.wikipedia.org/wiki/JSON), but this isn’t
+essential.
 
 ### On Windows
 
@@ -82,9 +83,9 @@ First, download this repository as a ZIP archive. To do this, click
 [here](https://github.com/lcamichigan/donation-thank-you-note/archive/master.zip).
 Unzip the archive wherever you wish.
 
-To make thank you notes, you enter commands in Command Prompt on Windows or
-Terminal on macOS. Open Command Prompt on Windows or Terminal on macOS, and then
-`cd` to the folder you just unzipped.
+To make thank you notes, you enter commands in PowerShell or Command Prompt on
+Windows, or in Terminal on macOS. Open PowerShell or Command Prompt on Windows,
+or Terminal on macOS, and then `cd` to the folder you just unzipped.
 
 ### Before Making Thank You Notes for the First Time…
 
@@ -172,9 +173,15 @@ python make_notes.py
 ```
 
 It’s often convenient to combine several thank you notes into one PDF file, and
-you can do this using Ghostscript.
+you can do this with Ghostscript.
 
-On Windows, enter in Command Prompt
+On Windows, enter in PowerShell
+
+```powershell
+Start-Process gswin64c -ArgumentList ('-dBATCH', '-dNOPAUSE', '-sDEVICE=pdfwrite', '-sOutputFile=Notes.pdf' + $(ForEach ($file in Get-ChildItem -Path notes\*.pdf) { 'notes\' + $file.Name }))
+```
+
+or in Command Prompt
 
 ```batch
 if exist filenames.txt del filenames.txt
@@ -183,9 +190,8 @@ gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.t
 ```
 
 to combine thank you notes into a PDF file named Notes.pdf. (If you see an error
-that “`gswin64c` is not recognized as an internal or external command, operable
-program or batch file”, then you need to replace `gswin64c` with its absolute
-path. This will usually be something like
+that `gswin64c` can’t be found, then you need to replace `gswin64c` with its
+absolute path. This will usually be something like
 `"C:\Program Files\gs\gs#.##\bin\gswin64c"`, where `#.##` is Ghostscript’s
 version.)
 

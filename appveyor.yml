@@ -34,7 +34,7 @@ install:
     xetex
 
   # Get the cross-and-crescent LaTeX package.
-  - ps: Start-FileDownload 'https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.3/cross-and-crescent.sty'
+  - ps: Start-FileDownload 'https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.4/cross-and-crescent.sty'
 
   # Install Ghostscript using Chocolatey <https://chocolatey.org>.
   - choco install ghostscript

@@ -6,6 +6,17 @@
 This is a collection of resources for creating thank you notes for donations to
 [Sigma Alumni Association](http://lcamichigan.com).
 
+## Contents
+
+* [Getting Started](#getting-started)
+  * [On Windows](#on-windows)
+  * [On macOS](#on-macos)
+* [How to Make Thank You Notes](#how-to-make-thank-you-notes)
+  * [Before Making Thank You Notes for the First Time…](#before-making-thank-you-notes-for-the-first-time)
+  * [Update info\.json](#update-infojson)
+  * [Update donations\.csv](#update-donationscsv)
+  * [Make Thank You Notes](#make-thank-you-notes)
+
 ## Getting Started
 
 To make thank you notes, you need [XeTeX](http://xetex.sourceforge.net), the
@@ -109,7 +120,7 @@ the information in info.json and donations.csv. You’ll see placeholder
 information in the thank you notes. You must update info.json and donations.csv
 with information about the notes you’re making.
 
-#### info.json
+### Update info.json
 
 Open info.json in a text editor (you can use Notepad on Windows or TextEdit on
 macOS). The contents of info.json will be something like:
@@ -146,7 +157,7 @@ to
 
 The event date is formatted as YYYY-MM-DD hh:mm.
 
-#### donations.csv
+### Update donations.csv
 
 You can open and edit donations.csv in many applications for working with
 spreadsheets, including
@@ -164,7 +175,7 @@ FirstName2 LastName2 | LastName2 | Street2 | City2 | State2 | ZIP2 | 200
 
 Replace the default data with information about donations.
 
-### Making Thank You Notes
+### Make Thank You Notes
 
 To make thank you notes, enter
 

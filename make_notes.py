@@ -45,7 +45,7 @@ with open('donations.csv') as file:
             file.write('\\newcommand\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
 
         note_number += 1
-        subprocess.check_output([
+        subprocess.check_call([
             'xetex',
             '-fmt=xelatex',
             '-jobname=Note{}'.format(note_number),

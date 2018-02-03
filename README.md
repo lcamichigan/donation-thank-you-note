@@ -70,7 +70,7 @@ After you install MacTeX, you must install the fonts Linux Libertine and Gillius
 system-wide. One way to do this is to create symbolic links to the folders
 containing these fonts by entering in Terminal
 
-``` sh
+```sh
 ln -s /usr/local/texlive/2017/texmf-dist/fonts/opentype/public/libertine ~/Library/Fonts/libertine
 ln -s /usr/local/texlive/2017/texmf-dist/fonts/opentype/arkandis/gillius ~/Library/Fonts/gillius
 ```
@@ -100,7 +100,7 @@ or Terminal on macOS, and then `cd` to the folder you just unzipped.
 
 ### Before Making Thank You Notes for the First Time…
 
-If you’re making thank you notes for the first time,  enter
+If you’re making thank you notes for the first time, enter
 
 ```sh
 python init.py

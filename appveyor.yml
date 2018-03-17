@@ -37,7 +37,7 @@ install:
   - ps: Start-FileDownload 'https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.4/cross-and-crescent.sty'
 
   # Install Ghostscript using Chocolatey <https://chocolatey.org>.
-  - choco install ghostscript
+  - choco install ghostscript.app
   # Add Ghostscript to the Windows PATH.
   - cd %ProgramFiles%\gs\gs*\bin
   - set PATH=%PATH%;%CD%

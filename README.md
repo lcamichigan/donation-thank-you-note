@@ -189,7 +189,7 @@ you can do this with Ghostscript.
 On Windows, enter in PowerShell
 
 ```powershell
-Start-Process gswin64c -ArgumentList ('-dBATCH', '-dNOPAUSE', '-sDEVICE=pdfwrite', '-sOutputFile=Notes.pdf' + $(ForEach ($file in Get-ChildItem -Path notes\*.pdf) { 'notes\' + $file.Name })) -NoNewWindow -Wait
+Start-Process gswin64c -ArgumentList ('-dBATCH', '-dNOPAUSE', '-sDEVICE=pdfwrite', '-sOutputFile=Notes.pdf' + $(ForEach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })) -NoNewWindow -Wait
 ```
 
 or in Command Prompt

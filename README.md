@@ -189,7 +189,7 @@ you can do this with Ghostscript.
 On Windows, enter in PowerShell
 
 ```powershell
-Start-Process gswin64c -ArgumentList ('-dBATCH', '-dNOPAUSE', '-sDEVICE=pdfwrite', '-sOutputFile=Notes.pdf' + $(ForEach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })) -NoNewWindow -Wait
+gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf $(ForEach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })
 ```
 
 or in Command Prompt
@@ -200,11 +200,12 @@ for %G in (notes\*.pdf) do @echo %G >> filenames.txt
 gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.txt
 ```
 
-to combine thank you notes into a PDF file named Notes.pdf. (If you see an error
+to combine thank you notes into a PDF file named Notes.pdf. If you see an error
 that `gswin64c` can’t be found, then you need to replace `gswin64c` with its
 absolute path. This will usually be something like
 `"C:\Program Files\gs\gs#.##\bin\gswin64c"`, where `#.##` is Ghostscript’s
-version.)
+version. In PowerShell, precede the absolute path of `gswin64c` by a call
+operator (`&`).
 
 On macOS, enter in Terminal
 

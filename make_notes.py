@@ -7,7 +7,6 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 
 
 directory_name = 'notes'
@@ -18,14 +17,14 @@ os.makedirs(directory_name)
 with open('info.json') as file:
     info = json.load(file)
 
+today = datetime.today()
+event_date = datetime.strptime(info['Event date and time'], '%Y-%m-%d %H:%M')
+assert today < event_date, 'Event date and time in info.json must be in the future'
+
 with open(os.path.join('support', 'note-info.tex'), 'w') as file:
     file.write('\\newcommand\SigmaStreet{{{}}}\n'.format(info['Sigma address'][0]))
     file.write('\\newcommand\SigmaCityStateAndZIP{{{}}}\n'.format(info['Sigma address'][1]))
     file.write('\\newcommand\eventName{{{}}}\n'.format(info['Event name']))
-    event_date = datetime.strptime(info['Event date and time'], '%Y-%m-%d %H:%M')
-    today = datetime.today()
-    if event_date <= today:
-        sys.exit('Event date and time in info.json must be in the future.')
     date_format = '{date:%A}, {date:%B} {date.day}'
     if event_date.year != today.year:
         date_format += ', {date.year}'

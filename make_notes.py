@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 
 
 directory_name = 'notes'
@@ -22,8 +23,11 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
     file.write('\\newcommand\SigmaCityStateAndZIP{{{}}}\n'.format(info['Sigma address'][1]))
     file.write('\\newcommand\eventName{{{}}}\n'.format(info['Event name']))
     event_date = datetime.strptime(info['Event date and time'], '%Y-%m-%d %H:%M')
+    today = datetime.today()
+    if event_date <= today:
+        sys.exit('Event date and time in info.json must be in the future.')
     date_format = '{date:%A}, {date:%B} {date.day}'
-    if event_date.year != datetime.today().year:
+    if event_date.year != today.year:
         date_format += ', {date.year}'
     date_format += ' at {date.hour}'
     if event_date.minute > 0:

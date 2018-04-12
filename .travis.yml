@@ -24,14 +24,13 @@ install:
     geometry
     gillius
     graphics
+    latex-bin
     libertine
+    luaotfload
     oberdiek
     pgf
     url
     xcolor
-    xetex
-  - ln -s /usr/local/texlive/texmf-dist/fonts/opentype/public/libertine ~/Library/Fonts/libertine
-  - ln -s /usr/local/texlive/texmf-dist/fonts/opentype/arkandis/gillius ~/Library/Fonts/gillius
 
   # Get the cross-and-crescent LaTeX package.
   - curl --location --remote-name https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.4/cross-and-crescent.sty

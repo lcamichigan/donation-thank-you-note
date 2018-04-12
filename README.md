@@ -19,14 +19,14 @@ This is a collection of resources for creating thank you notes for donations to
 
 ## Getting Started
 
-To make thank you notes, you need [XeTeX](http://xetex.sourceforge.net), the
+To make thank you notes, you need [LuaTeX](http://www.luatex.org), the
 [cross-and-crescent](https://github.com/lcamichigan/cross-and-crescent)
 LaTeX package, [Python](https://www.python.org), and
 [Ghostscript](https://www.ghostscript.com). All of these are free and
 cross-platform. You also need the OpenType versions of the fonts
 [Linux Libertine](http://www.linuxlibertine.org) and
 [Gillius](http://arkandis.tuxfamily.org/adffonts.html). These are also free, and
-you’ll get them automatically when you install XeTeX.
+you’ll get them automatically when you install LuaTeX.
 
 You don’t need to do any TeX or Python programming to make thank you notes.
 However, you should be familiar with entering commands in PowerShell or Command
@@ -36,7 +36,7 @@ essential.
 
 ### On Windows
 
-The most reliable way to install XeTeX is probably to install
+The most reliable way to install LuaTeX is probably to install
 [TeX Live](https://www.tug.org/texlive/). To install TeX Live, visit
 https://www.tug.org/texlive/acquire-netinstall.html, and then download and run
 install-tl-windows.exe. Note that installing TeX Live can take a few hours.
@@ -61,22 +61,10 @@ browser. On Windows 7 and later, you can use
 
 ### On macOS
 
-The easiest way to install XeTeX is probably to install
+The easiest way to install LuaTeX is probably to install
 [MacTeX](https://www.tug.org/mactex/). To install MacTeX, visit
 https://tug.org/mactex/mactex-download.html, download MacTeX.pkg, and then
 double-click MacTeX.pkg.
-
-After you install MacTeX, you must install the fonts Linux Libertine and Gillius
-system-wide. One way to do this is to create symbolic links to the folders
-containing these fonts by entering in Terminal
-
-```sh
-ln -s /usr/local/texlive/2017/texmf-dist/fonts/opentype/public/libertine ~/Library/Fonts/libertine
-ln -s /usr/local/texlive/2017/texmf-dist/fonts/opentype/arkandis/gillius ~/Library/Fonts/gillius
-```
-
-(If you’re using an older version of MacTeX, you’ll need to replace texlive/2017
-with, for example, texlive/2016.)
 
 To install the cross-and-crescent package, follow the instructions at
 https://github.com/lcamichigan/cross-and-crescent#installing.

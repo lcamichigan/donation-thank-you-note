@@ -49,8 +49,8 @@ with open('donations.csv') as file:
 
         note_number += 1
         subprocess.check_call([
-            'xetex',
-            '-fmt=xelatex',
+            'luatex',
+            '-fmt=lualatex',
             '-jobname=Note{}'.format(note_number),
             '-interaction=batchmode',
             '-output-directory=' + directory_name,

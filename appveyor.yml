@@ -26,12 +26,13 @@ install:
     geometry
     gillius
     graphics
+    latex-bin
     libertine
+    luaotfload
     oberdiek
     pgf
     url
     xcolor
-    xetex
 
   # Get the cross-and-crescent LaTeX package.
   - ps: Start-FileDownload 'https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.4/cross-and-crescent.sty'

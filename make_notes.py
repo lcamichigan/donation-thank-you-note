@@ -32,7 +32,10 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
     if event_date.minute > 0:
         date_format += ':{date:%M}'
     else:
-        date_format += ' o’clock'
+        # U+2019 is the code point of ’, a right single quotation mark. Use the
+        # code point instead of a literal ’ to avoid text encoding issues with
+        # Python 3 on Windows.
+        date_format += ' o\char"2019clock'
     file.write('\\newcommand\eventDate{' + date_format.format(date=event_date) + '}\n')
 
 with open('donations.csv') as file:
@@ -52,6 +55,7 @@ with open('donations.csv') as file:
             'luatex',
             '-fmt=lualatex',
             '-jobname=Note{}'.format(note_number),
+            '-interaction=batchmode',
             '-output-directory=' + directory_name,
             'Note.tex'
         ])

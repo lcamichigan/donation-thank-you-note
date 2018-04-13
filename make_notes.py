@@ -33,7 +33,7 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
         date_format += ':{date:%M}'
     else:
         date_format += ' o’clock'
-    file.write('\\newcommand\eventDate{{' + date_format.format(date=event_date) + '}}\n')
+    file.write('\\newcommand\eventDate{' + date_format.format(date=event_date) + '}\n')
 
 with open('donations.csv') as file:
     note_number = 0

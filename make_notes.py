@@ -52,7 +52,6 @@ with open('donations.csv') as file:
             'luatex',
             '-fmt=lualatex',
             '-jobname=Note{}'.format(note_number),
-            '-interaction=batchmode',
             '-output-directory=' + directory_name,
             'Note.tex'
         ])

@@ -42,6 +42,6 @@ before_script:
   - python --version
 
 script:
-  - python init.py
-  - python make_notes.py
+  - ./init.py
+  - ./make_notes.py
   - gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf notes/*.pdf

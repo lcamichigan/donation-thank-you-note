@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/lcamichigan/donation-thank-you-note.svg?branch=master)](https://travis-ci.org/lcamichigan/donation-thank-you-note)
 
 This is a collection of resources for creating thank you notes for donations to
-[Sigma Alumni Association](http://lcamichigan.com).
+[Sigma Alumni Association](https://lcamichigan.com).
 
 ## Contents
 

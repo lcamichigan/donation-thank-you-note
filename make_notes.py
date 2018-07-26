@@ -50,6 +50,12 @@ with open('donations.csv') as file:
             file.write('\\newcommand\donorState{{{}}}\n'.format(row['State'].strip()))
             file.write('\\newcommand\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))
             file.write('\\newcommand\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
+            file.write('\\newcommand\donationMessage{')
+            if row['Scholarships only'] == 'TRUE':
+                file.write('As requested, we will use your gift to provide scholarships')
+            else:
+                file.write('We will use your gift to provide the best possible Fraternal experience')
+            file.write('}\n')
 
         note_number += 1
         subprocess.check_call([

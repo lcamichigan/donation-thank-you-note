@@ -28,9 +28,9 @@ file_path = 'donations.csv'
 if not os.path.exists(file_path):
     with open(file_path, 'w') as file:
         csv.writer(file).writerows([
-            ['Display name',         'Last name', 'Street',  'City',  'State',  'ZIP', 'Amount'],
-            ['FirstName1 LastName1', 'LastName1', 'Street1', 'City1', 'State1', 'ZIP1', 100],
-            ['FirstName2 LastName2', 'LastName2', 'Street2', 'City2', 'State2', 'ZIP2', 200]
+            ['Display name',         'Last name', 'Street',  'City',  'State',  'ZIP', 'Amount', 'Scholarships only'],
+            ['FirstName1 LastName1', 'LastName1', 'Street1', 'City1', 'State1', 'ZIP1', 100,     'FALSE'],
+            ['FirstName2 LastName2', 'LastName2', 'Street2', 'City2', 'State2', 'ZIP2', 200,     'TRUE']
         ])
 
 directory_name = 'support'

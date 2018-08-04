@@ -19,18 +19,18 @@
 %   - 1     inch   high
 % Both windows are 0.375 inches from the left of the envelope.
 \newlength\topWindowMinY
-\topWindowMinY0.75in
+\topWindowMinY=0.75in
 \newlength\topWindowWidth
-\topWindowWidth3.5in
+\topWindowWidth=3.5in
 \newlength\topWindowHeight
-\topWindowHeight1.125in
+\topWindowHeight=1.125in
 
 \newlength\bottomWindowMinY
-\bottomWindowMinY2.375in
+\bottomWindowMinY=2.375in
 \newlength\bottomWindowWidth
-\bottomWindowWidth4in
+\bottomWindowWidth=4in
 \newlength\bottomWindowHeight
-\bottomWindowHeight1in
+\bottomWindowHeight=1in
 
 % Set up margins.
 \usepackage[
@@ -51,10 +51,10 @@
 \setsansfont{Gillius ADF No2}[Ligatures=NoRequired]
 
 % Don’t indent paragraphs.
-\parindent0sp
+\parindent=0sp
 
 % Separate paragraphs by 6 pt (“bp” means “big point”, and 1bp is 1/72 inch).
-\parskip6bp
+\parskip=6bp
 
 \begin{document}
 \frenchspacing    % Don’t put extra space after a full stop.
@@ -64,11 +64,11 @@
 % Add negative horizontal space so that a cross and crescent can be placed about
 % a half inch into the left margin.
 \newlength\crossAndCrescentSize
-\crossAndCrescentSize0.5in
+\crossAndCrescentSize=0.5in
 \newlength\crossAndCrescentThickness
 \crossAndCrescentThickness\pgflinewidth
 \newlength\crossAndCrescentSeparation
-\crossAndCrescentSeparation1ex
+\crossAndCrescentSeparation=1ex
 \hspace*{\dimexpr-\crossAndCrescentSize-\crossAndCrescentThickness-\crossAndCrescentSeparation\relax}%
 % Put a cross and crescent and the return address in a box.
 \raisebox{0sp}[%
@@ -153,7 +153,7 @@ Again, thank you!
 % *twice* to show the top and bottom envelope windows as gray rectangles.
 \iffalse
 \newlength\windowMinX
-\windowMinX0.375in
+\windowMinX=0.375in
 \begin{tikzpicture}[remember picture,overlay]
   \begin{scope}[lightgray]
     \draw

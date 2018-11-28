@@ -13,7 +13,7 @@ if not os.path.exists(file_path):
         event_date = datetime.today()
         event_date = event_date.replace(year=event_date.year + 1, month=3, day=22, hour=11, minute=0)
         event_date = event_date.replace(day=event_date.day + 5 - event_date.weekday())
-        file.write(textwrap.dedent('''
+        file.write(textwrap.dedent('''\
         {{
             "Sigma address": [
                 "123 Main St",
@@ -22,7 +22,7 @@ if not os.path.exists(file_path):
             "Event name": "Founders Day Brunch",
             "Event date and time": "{:%Y-%m-%d %H:%M}"
         }}
-        '''.format(event_date)).lstrip())
+        '''.format(event_date)))
 
 file_path = 'donations.csv'
 if not os.path.exists(file_path):

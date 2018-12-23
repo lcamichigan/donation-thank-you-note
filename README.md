@@ -88,7 +88,7 @@ or Terminal on macOS, and then `cd` to the folder you just unzipped.
 
 ### Before Making Thank You Notes for the First Time…
 
-If you’re making thank you notes for the first time, enter
+If you’re making thank you notes for the first time, enter:
 
 ```sh
 python init.py
@@ -97,7 +97,7 @@ python init.py
 This runs the Python script [init.py](init.py). This script creates an info.json
 file and a donations.csv file.
 
-Now, enter
+Now, enter:
 
 ```sh
 python make_notes.py
@@ -165,7 +165,7 @@ Replace the default data with information about donations.
 
 ### Make Thank You Notes
 
-To make thank you notes, enter
+To make thank you notes, enter:
 
 ```sh
 python make_notes.py
@@ -174,13 +174,13 @@ python make_notes.py
 It’s often convenient to combine several thank you notes into one PDF file, and
 you can do this with Ghostscript.
 
-On Windows, enter in PowerShell
+On Windows, enter in PowerShell:
 
 ```powershell
 gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile='Notes.pdf' $(ForEach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })
 ```
 
-or in Command Prompt
+or in Command Prompt:
 
 ```batch
 if exist filenames.txt del filenames.txt
@@ -191,18 +191,13 @@ gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.t
 to combine thank you notes into a PDF file named Notes.pdf. If you see an error
 that `gswin64c` can’t be found, then you need to replace `gswin64c` with its
 absolute path. This will usually be something like
+`"C:\Program Files\gs\gs#.##\bin\gswin64c"`, where `#.##` is Ghostscript’s
+version. In PowerShell, precede the absolute path of `gswin64c` by a call
+operator (`&`).
 
-```
-"C:\Program Files\gs\gs#.##\bin\gswin64c"
-```
-
-where `#.##` is Ghostscript’s version. In PowerShell, precede the absolute path
-of `gswin64c` by a call operator (`&`).
-
-On macOS, enter in Terminal
+To combine thank you notes into a PDF file named Notes.pdf on macOS, enter in
+Terminal:
 
 ```sh
 gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf notes/*.pdf
 ```
-
-to combine thank you notes into a PDF file named Notes.pdf.

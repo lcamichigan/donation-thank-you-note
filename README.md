@@ -177,7 +177,7 @@ you can do this with Ghostscript.
 On Windows, enter in PowerShell:
 
 ```powershell
-gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile='Notes.pdf' $(ForEach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })
+gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile='Notes.pdf' $(foreach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })
 ```
 
 or in Command Prompt:

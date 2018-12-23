@@ -48,7 +48,7 @@ build_script:
   - python --version
   - python init.py
   - python make_notes.py
-  - ps: gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile='Notes.pdf' $(ForEach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })
+  - ps: gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile='Notes.pdf' $(foreach ($file in Get-ChildItem notes\*.pdf) { 'notes\' + $file.Name })
   - if exist filenames.txt del filenames.txt
   - for %%G in (notes\*.pdf) do @echo %%G >> filenames.txt
   - gswin64c -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=Notes.pdf @filenames.txt

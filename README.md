@@ -174,7 +174,7 @@ python make_notes.py
 It’s often convenient to combine several thank you notes into one PDF file, and
 you can do this with Ghostscript.
 
-to combine thank you notes into a PDF file named Notes.pdf on Windows, enter in
+To combine thank you notes into a PDF file named Notes.pdf on Windows, enter in
 PowerShell:
 
 ```powershell

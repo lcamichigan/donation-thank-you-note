@@ -194,7 +194,7 @@ If you see an error that `gswin64c` can’t be found, then you need to replace
 `"C:\Program Files\gs\gs#.##\bin\gswin64c"`, where `#.##` is Ghostscript’s
 version. In PowerShell, precede the absolute path of `gswin64c` by a call
 operator
-([`&`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-6#call-operator-)).
+([`&`](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators#call-operator-)).
 
 To combine thank you notes into a PDF file named Notes.pdf on macOS, enter in
 Terminal:

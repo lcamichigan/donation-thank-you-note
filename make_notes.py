@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import argparse
 import csv
 from datetime import datetime
 import json
@@ -9,6 +10,10 @@ import re
 import shutil
 import subprocess
 
+
+parser = argparse.ArgumentParser(description='Make donation thank you notes.')
+parser.add_argument('csv_path', nargs='?', default='donations.csv', help='path to CSV file of donations (default: %(default)s)')
+args = parser.parse_args()
 
 directory_name = 'notes'
 if os.path.exists(directory_name):
@@ -39,7 +44,7 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
         date_format += ' o\char"2019clock'
     file.write('\\newcommand\eventDate{' + date_format.format(date=event_date) + '}\n')
 
-with open('donations.csv') as file:
+with open(args.csv_path) as file:
     note_number = 0
     for row in csv.DictReader(file):
         with open(os.path.join('support', 'donor-info.tex'), 'w') as file:

@@ -25,7 +25,7 @@ install:
     xcolor
 
   # Get the cross-and-crescent LaTeX package.
-  - curl --location --remote-name https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.4/cross-and-crescent.sty
+  - curl --location --remote-name https://github.com/lcamichigan/cross-and-crescent/releases/download/v1.5/cross-and-crescent.sty
 
   # Install Ghostscript using Homebrew <https://brew.sh>.
   - HOMEBREW_NO_AUTO_UPDATE=1 brew install ghostscript

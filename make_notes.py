@@ -60,7 +60,7 @@ with open(args.csv_path) as file:
                 file.write('As requested, we will use your gift to provide scholarships')
             else:
                 if datetime(2019, 3, 27) <= today:
-                    file.write('The ΛΧΑ house is undergoing a major renovation and your gift will provide critical support for the essential projects needed')
+                    file.write(u'The ΛΧΑ house is undergoing a major renovation and your gift will provide critical support for the essential projects needed')
                 else:
                     file.write('We will use your gift')
                 file.write(' to provide the best possible Fraternal experience')

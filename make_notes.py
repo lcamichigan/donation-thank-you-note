@@ -59,14 +59,11 @@ with open(args.csv_path) as file:
             if row['Scholarships only'] == 'TRUE':
                 file.write('As requested, we will use your gift to provide scholarships')
             else:
-                if datetime(2019, 3, 27) <= today:
-                    # Use the code points of the capital Greek letters Lambda,
-                    # Chi, and Αlpha to avoid text encoding issues with Python 3
-                    # on Windows.
-                    file.write('The \char"039B\char"03A7\char"0391\ house is undergoing a major renovation and your gift will provide critical support for the essential projects needed')
+                if datetime(2019, 3, 20) <= today:
+                    file.write('We are making some improvements to the chapter house, and your gift will help')
                 else:
-                    file.write('We will use your gift')
-                file.write(' to provide the best possible Fraternal experience')
+                    file.write('We will use your gift to')
+                file.write(' provide the best possible Fraternal experience')
             file.write('}\n')
 
         note_number += 1

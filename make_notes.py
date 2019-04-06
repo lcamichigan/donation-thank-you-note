@@ -71,8 +71,7 @@ with open(args.csv_path) as file:
 
         note_number += 1
         subprocess.check_call([
-            'luatex',
-            '-fmt=lualatex',
+            'lualatex',
             '-jobname=Note{}'.format(note_number),
             '-interaction=batchmode',
             '-output-directory=' + directory_name,

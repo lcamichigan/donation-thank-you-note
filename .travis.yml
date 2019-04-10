@@ -17,7 +17,7 @@ install:
     gillius
     graphics
     latex-bin
-    libertine
+    libertinus-fonts
     luaotfload
     oberdiek
     pgf

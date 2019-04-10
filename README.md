@@ -23,8 +23,8 @@ To make thank you notes, you need [LuaTeX](http://www.luatex.org), the
 [cross-and-crescent](https://github.com/lcamichigan/cross-and-crescent)
 LaTeX package, [Python](https://www.python.org), and
 [Ghostscript](https://www.ghostscript.com). All of these are free and
-cross-platform. You also need the OpenType versions of the fonts
-[Linux Libertine](http://libertine-fonts.org) and
+cross-platform. You also need the fonts
+[Libertinus](https://github.com/libertinus-fonts/libertinus) and
 [Gillius](http://arkandis.tuxfamily.org/adffonts.html). These are also free, and
 you’ll get them automatically when you install LuaTeX.
 

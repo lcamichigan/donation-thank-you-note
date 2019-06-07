@@ -62,6 +62,8 @@ with open(args.csv_path) as file:
                 if datetime(2019, 3, 20) <= today:
                     file.write('We are making some improvements to the chapter house, and your gift will help')
                 else:
+                    if row['Anonymous'] == 'TRUE':
+                        file.write('As requested, your gift will remain anonymous. ')
                     file.write('We will use your gift to')
                 file.write(' provide the best possible Fraternal experience')
             file.write('}\n')

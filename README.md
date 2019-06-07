@@ -156,10 +156,12 @@ donations.csv in any text editor.
 
 By default, donations.csv contains data like this:
 
-Display name         | Last name | Street  | City  | State  | ZIP  | Amount | Scholarships only
----------------------|-----------|---------|-------|--------|------|--------|------------------
-FirstName1 LastName1 | LastName1 | Street1 | City1 | State1 | ZIP1 | 100    | FALSE
-FirstName2 LastName2 | LastName2 | Street2 | City2 | State2 | ZIP2 | 200    | TRUE
+Display name         | Last name | Street  | City  | State  | ZIP  | Amount | Scholarships only | Anonymous
+---------------------|-----------|---------|-------|--------|------|--------|-------------------|----------
+FirstName1 LastName1 | LastName1 | Street1 | City1 | State1 | ZIP1 | 100    | FALSE             | FALSE
+FirstName2 LastName2 | LastName2 | Street2 | City2 | State2 | ZIP2 | 200    | FALSE             | TRUE
+FirstName3 LastName3 | LastName3 | Street3 | City3 | State3 | ZIP3 | 300    | TRUE              | FALSE
+FirstName4 LastName4 | LastName4 | Street4 | City4 | State4 | ZIP4 | 400    | TRUE              | TRUE
 
 Replace the default data with information about donations.
 

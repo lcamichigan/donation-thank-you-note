@@ -57,7 +57,7 @@ with open(args.csv_path) as file:
             file.write('\\newcommand\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
             file.write('\\newcommand\donationMessage{')
             if row['Scholarships only'] == 'TRUE':
-                file.write('As requested, we will use your gift to provide scholarships')
+                file.write('As requested, we will use your gift to provide scholarships to')
             else:
                 if datetime(2019, 3, 20) <= today:
                     file.write('We are making some improvements to the chapter house, and your gift will help')

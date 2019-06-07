@@ -56,16 +56,12 @@ with open(args.csv_path) as file:
             file.write('\\newcommand\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))
             file.write('\\newcommand\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
             file.write('\\newcommand\donationMessage{')
+            if row['Anonymous'] == 'TRUE':
+                file.write('As requested, your gift will remain anonymous. ')
             if row['Scholarships only'] == 'TRUE':
-                file.write('As requested, we will use your gift to provide scholarships to')
+                file.write('We will use your gift to provide scholarships')
             else:
-                if datetime(2019, 3, 20) <= today:
-                    file.write('We are making some improvements to the chapter house, and your gift will help')
-                else:
-                    if row['Anonymous'] == 'TRUE':
-                        file.write('As requested, your gift will remain anonymous. ')
-                    file.write('We will use your gift to')
-                file.write(' provide the best possible Fraternal experience')
+                file.write('We will use your gift to provide the best possible Fraternal experience')
             file.write('}\n')
 
         note_number += 1

@@ -50,7 +50,7 @@ with open(args.csv_path) as file:
         with open(os.path.join('support', 'donor-info.tex'), 'w') as file:
             file.write('\\newcommand\donorDisplayName{{{}}}\n'.format(row['Display name'].strip()))
             file.write('\\newcommand\donorLastName{{{}}}\n'.format(row['Last name'].strip()))
-            file.write('\\newcommand\donorStreet{{{}}}\n'.format(row['Street'].strip()))
+            file.write('\\newcommand\donorStreet{{{}}}\n'.format(re.sub(r'\n|\r\n?', r'\\\\', row['Street'].strip(), flags=re.MULTILINE).upper()))
             file.write('\\newcommand\donorCity{{{}}}\n'.format(row['City'].strip()))
             file.write('\\newcommand\donorState{{{}}}\n'.format(row['State'].strip()))
             file.write('\\newcommand\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))

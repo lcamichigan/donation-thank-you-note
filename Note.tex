@@ -104,7 +104,9 @@
 \parbox[t][\bottomWindowHeight][c]{\bottomWindowWidth}{%
   \sffamily\fontsize{12bp}{15bp}\selectfont%
   \MakeUppercase{\donorDisplayName}\\%
-  \MakeUppercase{\donorStreet} \\%
+  % \MakeUppercase fails when its argument contains linebreaks. The street may
+  % contain linebreaks, so make it uppercase in Python.
+  \donorStreet \\%
   % From https://pe.usps.com/text/pub28/28c2_009.htm, put two spaces between the
   % state and ZIP.
   \MakeUppercase{\donorCity\ \donorState\ \ \donorZIP}%

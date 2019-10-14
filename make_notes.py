@@ -12,6 +12,7 @@ import subprocess
 
 
 parser = argparse.ArgumentParser(description='Make donation thank you notes.')
+parser.add_argument('-j', '--join', action='store_true', help='combine output into one pdf')
 parser.add_argument('csv_path', nargs='?', default='donations.csv', help='path to CSV file of donations (default: %(default)s)')
 args = parser.parse_args()
 
@@ -44,6 +45,8 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
         date_format += ' o\char"2019clock'
     file.write('\\newcommand\eventDate{' + date_format.format(date=event_date) + '}\n')
 
+generated_files = []
+
 with open(args.csv_path) as file:
     note_number = 0
     for row in csv.DictReader(file):
@@ -72,3 +75,10 @@ with open(args.csv_path) as file:
             '-output-directory=' + directory_name,
             'Note.tex'
         ])
+
+        generated_files.append(directory_name + "/Note{}.pdf".format(note_number))
+
+    if args.join:
+        subprocess.check_call(
+            ["pdfjoin", "--outfile", directory_name + "/Joined.pdf", *generated_files]
+        )

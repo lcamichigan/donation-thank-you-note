@@ -29,9 +29,9 @@ event_date = datetime.strptime(info['Event date and time'], '%Y-%m-%d %H:%M')
 assert today < event_date, 'Event date and time in info.json must be in the future'
 
 with open(os.path.join('support', 'note-info.tex'), 'w') as file:
-    file.write('\\newcommand\SigmaStreet{{{}}}\n'.format(info['Sigma address'][0]))
-    file.write('\\newcommand\SigmaCityStateAndZIP{{{}}}\n'.format(info['Sigma address'][1]))
-    file.write('\\newcommand\eventName{{{}}}\n'.format(info['Event name']))
+    file.write('\\newcommand\\SigmaStreet{{{}}}\n'.format(info['Sigma address'][0]))
+    file.write('\\newcommand\\SigmaCityStateAndZIP{{{}}}\n'.format(info['Sigma address'][1]))
+    file.write('\\newcommand\\eventName{{{}}}\n'.format(info['Event name']))
     date_format = '{date:%A}, {date:%B} {date.day}'
     if event_date.year != today.year:
         date_format += ', {date.year}'
@@ -42,8 +42,8 @@ with open(os.path.join('support', 'note-info.tex'), 'w') as file:
         # U+2019 is the code point of ’, a right single quotation mark. Use the
         # code point instead of a literal ’ to avoid text encoding issues with
         # Python 3 on Windows.
-        date_format += ' o\char"2019clock'
-    file.write('\\newcommand\eventDate{' + date_format.format(date=event_date) + '}\n')
+        date_format += ' o\\char"2019clock'
+    file.write('\\newcommand\\eventDate{' + date_format.format(date=event_date) + '}\n')
 
 generated_files = []
 
@@ -51,14 +51,14 @@ with open(args.csv_path) as file:
     note_number = 0
     for row in csv.DictReader(file):
         with open(os.path.join('support', 'donor-info.tex'), 'w') as file:
-            file.write('\\newcommand\donorDisplayName{{{}}}\n'.format(row['Display name'].strip()))
-            file.write('\\newcommand\donorLastName{{{}}}\n'.format(row['Last name'].strip()))
-            file.write('\\newcommand\donorStreet{{{}}}\n'.format(re.sub(r'\n|\r\n?', r'\\\\', row['Street'].strip(), flags=re.MULTILINE).upper()))
-            file.write('\\newcommand\donorCity{{{}}}\n'.format(row['City'].strip()))
-            file.write('\\newcommand\donorState{{{}}}\n'.format(row['State'].strip()))
-            file.write('\\newcommand\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))
-            file.write('\\newcommand\donationAmount{{\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
-            file.write('\\newcommand\donationMessage{')
+            file.write('\\newcommand\\donorDisplayName{{{}}}\n'.format(row['Display name'].strip()))
+            file.write('\\newcommand\\donorLastName{{{}}}\n'.format(row['Last name'].strip()))
+            file.write('\\newcommand\\donorStreet{{{}}}\n'.format(re.sub(r'\n|\r\n?', r'\\\\', row['Street'].strip(), flags=re.MULTILINE).upper()))
+            file.write('\\newcommand\\donorCity{{{}}}\n'.format(row['City'].strip()))
+            file.write('\\newcommand\\donorState{{{}}}\n'.format(row['State'].strip()))
+            file.write('\\newcommand\\donorZIP{{{}}}\n'.format(row['ZIP'].strip()))
+            file.write('\\newcommand\\donationAmount{{\\${}}}\n'.format(re.sub(r'\.0*$', '', '{:,.2f}'.format(float(row['Amount'])))))
+            file.write('\\newcommand\\donationMessage{')
             if row['Anonymous'] == 'TRUE':
                 file.write('As requested, your gift will remain anonymous. ')
             if row['Scholarships only'] == 'TRUE':

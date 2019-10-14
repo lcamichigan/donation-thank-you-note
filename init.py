@@ -7,13 +7,17 @@ import os
 import textwrap
 
 
-file_path = 'info.json'
+file_path = "info.json"
 if not os.path.exists(file_path):
-    with open(file_path, 'w') as file:
+    with open(file_path, "w") as file:
         event_date = datetime.today()
-        event_date = event_date.replace(year=event_date.year + 1, month=3, day=22, hour=11, minute=0)
+        event_date = event_date.replace(
+            year=event_date.year + 1, month=3, day=22, hour=11, minute=0
+        )
         event_date = event_date.replace(day=event_date.day + 5 - event_date.weekday())
-        file.write(textwrap.dedent('''\
+        file.write(
+            textwrap.dedent(
+                """\
         {{
             "Sigma address": [
                 "123 Main St",
@@ -22,19 +26,75 @@ if not os.path.exists(file_path):
             "Event name": "Founders Day Brunch",
             "Event date and time": "{:%Y-%m-%d %H:%M}"
         }}
-        '''.format(event_date)))
+        """.format(
+                    event_date
+                )
+            )
+        )
 
-file_path = 'donations.csv'
+file_path = "donations.csv"
 if not os.path.exists(file_path):
-    with open(file_path, 'w') as file:
-        csv.writer(file).writerows([
-            ['Display name',         'Last name', 'Street',  'City',  'State',  'ZIP', 'Amount', 'Scholarships only', 'Anonymous'],
-            ['FirstName1 LastName1', 'LastName1', 'Street1', 'City1', 'State1', 'ZIP1', 100,     'FALSE',             'FALSE'    ],
-            ['FirstName2 LastName2', 'LastName2', 'Street2', 'City2', 'State2', 'ZIP2', 200,     'FALSE',             'TRUE'     ],
-            ['FirstName3 LastName3', 'LastName3', 'Street3', 'City3', 'State3', 'ZIP3', 300,     'TRUE',              'FALSE'    ],
-            ['FirstName4 LastName4', 'LastName4', 'Street4', 'City4', 'State4', 'ZIP4', 400,     'TRUE',              'TRUE'     ]
-        ])
+    with open(file_path, "w") as file:
+        csv.writer(file).writerows(
+            [
+                [
+                    "Display name",
+                    "Last name",
+                    "Street",
+                    "City",
+                    "State",
+                    "ZIP",
+                    "Amount",
+                    "Scholarships only",
+                    "Anonymous",
+                ],
+                [
+                    "FirstName1 LastName1",
+                    "LastName1",
+                    "Street1",
+                    "City1",
+                    "State1",
+                    "ZIP1",
+                    100,
+                    "FALSE",
+                    "FALSE",
+                ],
+                [
+                    "FirstName2 LastName2",
+                    "LastName2",
+                    "Street2",
+                    "City2",
+                    "State2",
+                    "ZIP2",
+                    200,
+                    "FALSE",
+                    "TRUE",
+                ],
+                [
+                    "FirstName3 LastName3",
+                    "LastName3",
+                    "Street3",
+                    "City3",
+                    "State3",
+                    "ZIP3",
+                    300,
+                    "TRUE",
+                    "FALSE",
+                ],
+                [
+                    "FirstName4 LastName4",
+                    "LastName4",
+                    "Street4",
+                    "City4",
+                    "State4",
+                    "ZIP4",
+                    400,
+                    "TRUE",
+                    "TRUE",
+                ],
+            ]
+        )
 
-directory_name = 'support'
+directory_name = "support"
 if not os.path.exists(directory_name):
     os.makedirs(directory_name)

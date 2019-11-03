@@ -109,5 +109,5 @@ with open(args.csv_path) as file:
 
     if args.join:
         subprocess.check_call(
-            ["pdfjoin", "--outfile", directory_name + "/Joined.pdf", *generated_files]
+            ["pdfjoin", "--outfile", directory_name + "/Joined.pdf"] + generated_files
         )
